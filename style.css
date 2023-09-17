@@ -1,0 +1,137 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --mainColor: rgb(68, 0, 101);
+    --circleColor: rgb(0, 13, 192);
+    --siverColor: silver;
+    --titleSize: 32px;
+    --loaderSize: 40px;
+    --play: running;
+
+}
+
+body {
+    -youbkit-touch-callout: none;
+    /* Сафари для iOS */
+    -youbkit-user-select: none;
+    /* Chrome 6.0+, Safari 3.1+, Edge и Opera 15+ */
+    -moz-user-select: none;
+    /* Fire Fox */
+    -ms-user-select: none;
+    /* IE 10+ и Edge */
+    user-select: none;
+
+    background: var(--mainColor);
+    color: var(--siverColor);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+h1 {
+    font-size: var(--titleSize, 42px);
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btnsWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-change-size {
+    cursor: pointer;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--siverColor);
+    color: var(--siverColor);
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    transition: .3s linear;
+}
+
+.btn {
+    cursor: pointer;
+    border-radius: 7px;
+    background: transparent;
+    border: 1px solid var(--siverColor);
+    color: var(--siverColor);
+    font-size: 22px;
+    padding: 10px 20px;
+    transition: .3s linear;
+}
+
+.btn:hover,
+.btn-change-size:hover {
+    opacity: 0.5;
+}
+
+.loader {
+    position: relative;
+    min-height: 400px;
+    height: fit-content;
+    border-top: 1px solid var(--siverColor);
+    border-bottom: 1px solid var(--siverColor);
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle,
+.dots {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--loaderSize);
+    height: var(--loaderSize);
+    border-radius: 50%;
+    border-left: dotted 2px #fff;
+    animation: rotate 1.9s infinite linear;
+    animation-play-state: var(--play);
+
+}
+
+.circle {
+    border-color: aqua;
+    animation-direction: reverse;
+    /* box-shadow: 0px 3px 4px rgba(255, 255, 255, 0.1); */
+
+}
+
+.dots {
+    opacity: 0.3;
+    border-color: bisque;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) scale(1.1);
+    }
+
+    25% {
+        transform: rotate(90deg) scale(1.3);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.5);
+    }
+
+    75% {
+        transform: rotate(270deg) scale(1.3);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1.1);
+    }
+}
